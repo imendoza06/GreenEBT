@@ -14,11 +14,12 @@ class MapAndBoro extends React.Component {
   };
 
   render() {
+    console.log('default option FINAL', this.props.defaultOptions)
     return (
       <div>
-        <SelectBorough />
+        <SelectBorough markets={this.props.markets} getMarketDetail={this.props.getMarketDetail} selectedBorough={this.props.selectedBorough} defaultOptions={this.props.defaultOptions} handleSelect={this.props.handleSelect}/>
         <div id="map-container">
-          <Map onMarketClick={this.onMarketClick} />
+          <Map selectedBorough={this.props.selectedBorough} defaultOptions={this.props.defaultOptions} onMarketClick={this.onMarketClick} />
         </div>
         <div id="market-info">
           {this.state.selectedMarket ? (

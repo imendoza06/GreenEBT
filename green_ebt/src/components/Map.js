@@ -15,17 +15,20 @@ import appleImageredM from "../images/red_apple_medium.png";
 import appleImageredL from "../images/red_apple_large.png";
 
 
-const defaultOptions = {
-  defaultCenter: { lat: 40.7128, lng: -73.9 },
-  defaultZoom: 11
-};
-
 class Map extends React.Component {
-  state = {
-    mapOptions: defaultOptions,
-    markets: [],
-    selectedMarketID: null
-  };
+  constructor(props) {
+    super(props) 
+    // this.defaultOptions = { 
+    //   defaultCenter: { lat: 40.7128, lng: -73.9 },
+    //   defaultZoom: 11
+    // }
+    this.state = {
+      mapOptions: this.props.defaultOptions,
+      markets: [],
+      selectedMarketID: null
+    };
+  }
+
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.state !== nextState;
@@ -60,21 +63,29 @@ class Map extends React.Component {
     this.setState({ selectedMarketID: market.unique_key });
   };
 
-  render() {
+  render(props) {
     const { markets, mapOptions, selectedMarketID } = this.state;
     const { zoom } = mapOptions;
 
+    console.log('selectedborough props', this.props.selectedBorough)
+    // console.log('default options', this.defaultOptions)
+
+
+    
+    console.log('MAP default options', this.props.defaultoptions)
+
     const imageGreen =
-      zoom >= 16 ? appleImageL : zoom >= 14 ? appleImageM : appleImageS;
+      zoom >= 16 ? appleImageL : zoom >= 13 ? appleImageM : appleImageS;
 console.log('imggreen', imageGreen)
 
 const imageRed = 
-zoom >= 16 ? appleImageredL : zoom >= 14 ? appleImageredM: appleImageredS;
+zoom >= 16 ? appleImageredL : zoom >= 13 ? appleImageredM: appleImageredS;
 console.log('imgred', imageRed)
 
 
     console.log("this.state.markets", this.state.markets);
     // console.log('this.state.markets[0].location_points', this.state.markets[0].location_points.coordinates)
+    console.log('default option FINAL', this.props.defaultOptions)
 
     return (    
       <GoogleMapReact
@@ -82,7 +93,7 @@ console.log('imgred', imageRed)
           key: "AIzaSyCQTUR2rqPrkIsOIBh7G_KjKE74P4kcKX0"
         }}
         onChange={this.onMapChange}
-        {...defaultOptions}
+        {...this.props.defaultOptions}
         {...mapOptions}
       >
         {markets.map(market => ( market.snap_status === "Y" ? 
