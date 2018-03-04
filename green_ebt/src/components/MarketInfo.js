@@ -14,13 +14,13 @@ const MarketInfo = market => {
       <br />
       EBT/SNAP: {market.snap_status === "Y" ? "Yes" : "No"}
       <br />
+          { market.market_link ? (
       <p>
         Additional Information:{" "}
         <a target="_blank" href={market.market_link}>
           {market.market_link}
-        </a>
-      </p>{" "}
-      <br />
+        </a> 
+      </p>) : null}
     </div>
   );
 };

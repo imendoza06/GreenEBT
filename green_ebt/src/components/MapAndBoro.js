@@ -21,13 +21,6 @@ class MapAndBoro extends React.Component {
         <div id="map-container">
           <Map selectedBorough={this.props.selectedBorough} defaultOptions={this.props.defaultOptions} onMarketClick={this.onMarketClick} />
         </div>
-        <div id="market-info">
-          {this.state.selectedMarket ? (
-            MarketInfo(this.state.selectedMarket)
-          ) : (
-            <strong> Choose a farmers' market </strong>
-          )}
-        </div>
       </div>
     );
   }
