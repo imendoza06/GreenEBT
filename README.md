@@ -22,9 +22,9 @@ Open http://localhost:3000/ to view the app in a browser.
 
 
 ## Built With
-* [NYC OpenData API ]https://data.cityofnewyork.us/Business/Courses-Training-Provider-Listing/fgq8-am2v) - Listing of vocational training courses eligible for Individual Training Grants 
+* [NYC OpenData API ] (https://data.cityofnewyork.us/) - Listing of local Farmer's Markets in NY 
 * [React](https://reactjs.org/) - JavaScript library 
-* CSS/HTML 
+* CSS3
 
 
 ## Contributors 
@@ -36,4 +36,4 @@ Open http://localhost:3000/ to view the app in a browser.
 
 
 ## Acknowledgments 
-* Our mentor, [Nathan Kane]
+* Our mentor: Nathan Kane
